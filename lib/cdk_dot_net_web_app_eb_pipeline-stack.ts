@@ -18,7 +18,6 @@ export class CdkDotNetWebAppEbPipelineStack extends cdk.Stack {
       "Sample-msf-eb-app"
     );
     //Custom docker image for .net build tools environment
-    //TODO: Need to store repo id and account specific repo url somewhere else and remove hard coding.
     const ecrRepo = awsEcr.Repository.fromRepositoryArn(
       this,
       "121212121212",
@@ -41,7 +40,6 @@ export class CdkDotNetWebAppEbPipelineStack extends cdk.Stack {
     const cdkBuildOutput = new codepipeline.Artifact();
 
     //Adding stages to code pipeline
-    //No need for deploy stage as buildspec.yml file in code repo will be deploying final Publish directory to target S3 bucket i.e. sample-click-once-dev
     const pipeline = new codepipeline.Pipeline(this, "Pipeline", {
       stages: [
         {
@@ -71,8 +69,6 @@ export class CdkDotNetWebAppEbPipelineStack extends cdk.Stack {
     //As we are planning to deploy to Elastic Beanstalk we will create EB Environment for ourapplication before adding deploy stage
 
     //objects for access parameters
-    const node = this.node;
-    const platform = node.tryGetContext("platform");
     const appName = "SampleDotNetMVCWebApp";
 
     const app = new elasticbeanstalk.CfnApplication(this, "EBApplication", {
@@ -82,7 +78,6 @@ export class CdkDotNetWebAppEbPipelineStack extends cdk.Stack {
     const elbEnv = new elasticbeanstalk.CfnEnvironment(this, "Environment", {
       environmentName: "SampleMVCEBEnvironment",
       applicationName: appName,
-      platformArn: platform,
       solutionStackName: "64bit Windows Server 2012 R2 v2.5.0 running IIS 8.5"
     });
 
