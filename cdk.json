@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node bin/cdk_dot_net_web_app_eb_pipeline.ts"
+}
