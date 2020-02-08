@@ -1,8 +1,6 @@
 # Welcome to your CDK TypeScript project!
 
-This is a blank project for TypeScript development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Full blog post on how to use this code - http://www.dontworrygeek.com/2020/02/cicd-pipeline-for-net-framework.html
 
 ## Useful commands
 
