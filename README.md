@@ -13,7 +13,9 @@ Considering you are creating this code pipeline in account-1 and your infrastruc
 
 
 1] `npm install`
+
 2] `npm run build`
+
 3] `cdk synth`
 
 Now we will have our stacks ready to be deployed and you will observe the output of "cdk synth" command 
