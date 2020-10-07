@@ -88,6 +88,7 @@ export class CdkDotNetWebAppEbPipelineStack extends cdk.Stack {
         //This custom AWS CodePipeline action to deploy artifact package to Elastic Beanstalk
         new ElasticBeanStalkDeployAction({
           actionName: "DeployToEB",
+          account: "[TargetAWSAccountNumber]",  //replace "[TargetAWSAccountNumber]" with account-2's account number.  
           applicationName: appName,
           environmentName: "SampleMVCEBEnvironment",
           input: cdkBuildOutput

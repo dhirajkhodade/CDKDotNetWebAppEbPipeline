@@ -10,6 +10,8 @@ export interface ElasticBeanStalkDeployActionProps
   environmentName: string;
 
   input: codepipeline.Artifact;
+
+  account: string;
 }
 
 export class ElasticBeanStalkDeployAction implements codepipeline.IAction {
